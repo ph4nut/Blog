@@ -1,0 +1,802 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-11-28 22:55:34) [GET]
+  [4;36;1mSQL (30.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 221ms (View: 10, DB: 30) | 200 OK [http://localhost/rails/info/properties]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (131.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (150.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20091128145813)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091128145813')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:01:13) [GET]
+  [4;35;1mPost Load (301.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 16453ms (View: 14180, DB: 301) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-11-28 23:02:44) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 861ms (View: 671, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-11-28 23:02:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "post"=>{"body"=>"Hi,rails!", "title"=>"rails rocks"}}
+  [4;36;1mPost Create (170.0ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-11-28 15:02:59', 'rails rocks', 'Hi,rails!', '2009-11-28 15:02:59')[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 791ms (DB: 170) | 302 Found [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:03:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 60ms (View: 40, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-11-28 23:03:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 110ms (View: 70, DB: 0) | 200 OK [http://localhost/posts/1/edit]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-11-28 23:03:11) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "post"=>{"body"=>"Hi,rails!and even update!", "title"=>"rails rocks"}, "id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPost Update (60.0ms)[0m   [0;1mUPDATE "posts" SET "body" = 'Hi,rails!and even update!', "updated_at" = '2009-11-28 15:03:12' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 331ms (DB: 60) | 302 Found [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:03:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 40ms (View: 10, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:03:17) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 141ms (View: 111, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:03:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (20.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 60ms (View: 20, DB: 20) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:03:21) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 101ms (View: 51, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-11-28 23:05:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (10.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 1402ms (View: 842, DB: 10) | 200 OK [http://localhost/posts/1/edit]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-11-28 23:06:02) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "post"=>{"body"=>"Hi,rails!and even update!", "title"=>""}, "id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 1262ms (View: 1022, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-11-28 23:06:17) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "post"=>{"body"=>"Hi,rails!and even update!", "title"=>"rails rocks"}, "id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://localhost:3000/posts/1
+Completed in 150ms (DB: 0) | 302 Found [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:06:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 40ms (View: 10, DB: 10) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:06:41) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 180ms (View: 70, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:13:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `link_to_unless_cerrent' for #<ActionView::Base:0x4c7ad40>) on line #2 of app/views/posts/show.html.erb:
+1: <% div_for @post do %>
+2:   <h2><%= link_to_unless_cerrent h(@post.title), @post %></h2>
+3: <% end %>
+4: 
+5: <p>
+
+    app/views/posts/show.html.erb:2
+    app/views/posts/show.html.erb:1
+    app/controllers/posts_controller.rb:18:in `show'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (701.0ms)
+Rendered rescues/_request_and_response (50.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:15:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (10.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 921ms (View: 821, DB: 10) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-11-28 23:15:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 110ms (View: 60, DB: 10) | 200 OK [http://localhost/posts/1/edit]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-11-28 23:15:27) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "post"=>{"body"=>"Hi,rails!and even update!", "title"=>"rails rocks"}, "id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://localhost:3000/posts/1
+Completed in 250ms (DB: 0) | 302 Found [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:15:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 70ms (View: 30, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:16:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `simple_formate' for #<ActionView::Base:0x4cb7a88>) on line #3 of app/views/posts/show.html.erb:
+1: <% div_for @post do %>
+2:   <h2><%= link_to_unless_current h(@post.title), @post %></h2>
+3:   <%= simple_formate h(@post.body) %>
+4: <% end %>
+5: 
+6: <p>
+
+    app/views/posts/show.html.erb:3
+    app/views/posts/show.html.erb:1
+    app/controllers/posts_controller.rb:18:in `show'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (241.0ms)
+Rendered rescues/_request_and_response (80.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:17:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 110ms (View: 80, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:23:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (30.0ms)
+Completed in 8722ms (View: 7911, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:23:59) [GET]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Completed in 781ms (View: 180, DB: 20) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:24:37) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Completed in 40ms (View: 10, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:24:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 80ms (View: 50, DB: 10) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:24:47) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Completed in 30ms (View: 10, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:26:52) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Completed in 1492ms (View: 1322, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-11-28 23:27:02) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 380ms (View: 290, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-11-28 23:27:16) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "post"=>{"body"=>"wow!rials!", "title"=>"Rails Rocks"}}
+  [4;35;1mPost Create (80.0ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-11-28 15:27:16', 'Rails Rocks', 'wow!rials!', '2009-11-28 15:27:16')[0m
+Redirected to http://localhost:3000/posts/2
+Completed in 501ms (DB: 80) | 302 Found [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:27:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 571ms (View: 240, DB: 0) | 200 OK [http://localhost/posts/2]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:27:23) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 330ms (View: 30, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:30:08) [GET]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (10.0ms)
+Completed in 1182ms (View: 1012, DB: 20) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:30:14) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 380ms (View: 140, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:31:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (0.0ms)
+Completed in 1332ms (View: 1142, DB: 10) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:35:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (20.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+Completed in 821ms (View: 280, DB: 20) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:36:02) [GET]
+  [4;36;1mPost Load (30.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (30.0ms)
+Completed in 1462ms (View: 1151, DB: 30) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:42:35) [GET]
+  [4;35;1mPost Load (171.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 341ms (View: 30, DB: 171) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:42:58) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 240ms (View: 210, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:43:43) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 270ms (View: 240, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:43:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (0.0ms)
+Completed in 450ms (View: 390, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:43:59) [GET]
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 40ms (View: 10, DB: 10) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:46:05) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+
+ActionView::TemplateError (Missing template posts/_post.erb in view path app/views) on line #2 of app/views/posts/index.html.erb:
+1: <h1>Listing posts</h1>
+2: <%= render :partial => @posts %>
+3: <%= link_to 'New post', new_post_path %>
+
+    app/views/posts/index.html.erb:2
+    app/controllers/posts_controller.rb:7:in `index'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (270.0ms)
+Rendered rescues/_request_and_response (20.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:47:00) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 60ms (View: 40, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:47:04) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 40ms (View: 10, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:47:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+Completed in 60ms (View: 40, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-28 23:52:46) [GET]
+  [4;35;1mPost Load (20.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (1142.0ms)
+Rendered posts/_post (0.0ms)
+Completed in 3785ms (View: 3575, DB: 20) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-28 23:54:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (20.0ms)
+Completed in 71ms (View: 40, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index to xml (for 127.0.0.1 at 2009-11-28 23:56:15) [GET]
+  [4;35;1mPost Load (60.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Completed in 5407ms (View: 3835, DB: 60) | 200 OK [http://localhost/posts.xml]
+
+
+Processing PostsController#index to xml (for 127.0.0.1 at 2009-11-28 23:56:25) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Completed in 40ms (View: 20, DB: 0) | 200 OK [http://localhost/posts.xml]
+
+
+Processing PostsController#index to json (for 127.0.0.1 at 2009-11-28 23:58:03) [GET]
+  [4;35;1mPost Load (91.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Completed in 2304ms (View: 621, DB: 91) | 200 OK [http://localhost/posts.json]
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2009-11-29 00:02:35) [GET]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 2073ms (View: 1743, DB: 20) | 200 OK [http://localhost/posts.atom]
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2009-11-29 00:04:15) [GET]
+  [4;35;1mPost Load (10.0ms)[0m   [0mSELECT * FROM "posts" [0m
+
+ActionView::MissingTemplate (Missing template posts/index.erb in view path app/views):
+  app/controllers/posts_controller.rb:7:in `index'
+  d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2009-11-29 00:06:01) [GET]
+  [4;36;1mPost Load (30.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+
+ActionView::TemplateError (undefined method `create_at' for #<Post:0x49e67a0>) on line #3 of app/views/posts/index.atom.builder:
+1: atom_feed do |feed|
+2:   feed.title("My great blog!")
+3:   feed.updated(@posts.first.create_at)
+4:   @posts.each do |post|
+5:     feed.entry(post) do |entry|
+6:       entry.title(post.title)
+
+    app/views/posts/index.atom.builder:3:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:1:in `_run_builder_app47views47posts47index46atom46builder'
+    app/controllers/posts_controller.rb:7:in `index'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (13359.0ms)
+Rendered rescues/_request_and_response (40.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2009-11-29 00:07:32) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 160ms (View: 140, DB: 0) | 200 OK [http://localhost/posts.atom]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 00:10:31) [GET]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (490.0ms)
+Rendered posts/_post (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 3115ms (View: 2834, DB: 20) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20091128145813)
+Migrating to CreateComments (20091128161433)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (30.0ms)[0m   [0mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091128161433')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("comments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2009-11-29 00:15:46) [GET]
+  [4;35;1mPost Load (20.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 2995ms (View: 2404, DB: 20) | 200 OK [http://localhost/posts.atom]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 00:32:51) [GET]
+  [4;36;1mPost Load (190.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (1112.0ms)
+Rendered posts/_post (80.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 5097ms (View: 2994, DB: 190) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:33:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (10.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (90.0ms)
+
+ActionView::TemplateError (undefined method `comments' for #<Post:0x49ae97c>) on line #11 of app/views/posts/show.html.erb:
+8: 
+9: <h2>Comments</h2>
+10: <div id="comments">
+11:   <%= render :partial => @post.comments %>
+12: </div>
+13: 
+14: <% form_for [@post, Comment.new] do |f| %>
+
+    app/views/posts/show.html.erb:11
+    app/controllers/posts_controller.rb:20:in `show'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (15773.0ms)
+Rendered rescues/_request_and_response (50.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:35:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;35;1mComment Load (30.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 310ms (View: 160, DB: 30) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-11-29 00:35:25) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "comment"=>{"body"=>"aaaa"}}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://localhost:3000/posts/1
+Completed in 250ms (DB: 0) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:35:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (20.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 120ms (View: 90, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-11-29 00:40:15) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "comment"=>{"body"=>"agreed!"}}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mComment Create (60.0ms)[0m   [0mINSERT INTO "comments" ("updated_at", "body", "post_id", "created_at") VALUES('2009-11-28 16:40:15', 'agreed!', 1, '2009-11-28 16:40:15')[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 961ms (DB: 60) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:40:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `coment' for #<ActionView::Base:0x4bf0028>) on line #3 of app/views/comments/_comment.html.erb:
+1: <% div_for comment do %>
+2:   <p>
+3:     <strong>Posted <%= time_ago_in_words(coment.created_at) %>
+4:       <%= h(comment.body) %>
+5:   </p>
+6: <% end %>
+
+    app/views/comments/_comment.html.erb:3
+    app/views/comments/_comment.html.erb:1
+    app/views/posts/show.html.erb:11
+    app/controllers/posts_controller.rb:20:in `show'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (321.0ms)
+Rendered rescues/_request_and_response (90.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 00:41:09) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Rendered posts/_post (300.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 431ms (View: 401, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:41:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (431.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 621ms (View: 541, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-11-29 00:41:29) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"we38vV29fEQEqM1r0MP4XCvzKSJuPbvU8+p6mdEkys8=", "comment"=>{"body"=>"again for no bug!"}}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Create (0.0ms)[0m   [0;1mINSERT INTO "comments" ("updated_at", "body", "post_id", "created_at") VALUES('2009-11-28 16:41:29', 'again for no bug!', 1, '2009-11-28 16:41:29')[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 380ms (DB: 0) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:41:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (10.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (20.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 141ms (View: 101, DB: 10) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:41:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (30.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 180ms (View: 140, DB: 0) | 200 OK [http://localhost/posts/1]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" LIMIT 1[0m
+  [4;35;1mPost Update (220.0ms)[0m   [0mUPDATE "posts" SET "title" = 'Twilight''s first post', "updated_at" = '2009-11-28 16:49:36' WHERE "id" = 1[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 00:50:54) [GET]
+  [4;36;1mPost Load (50.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (400.0ms)
+Rendered posts/_post (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 1241ms (View: 901, DB: 50) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 00:51:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (10.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (21.0ms)
+  [4;36;1mComment Load (10.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (771.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 1082ms (View: 1042, DB: 20) | 200 OK [http://localhost/posts/1]
