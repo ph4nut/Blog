@@ -800,3 +800,271 @@ Rendered comments/_comment (771.0ms)
 Rendered comments/_comment (0.0ms)
 DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
 Completed in 1082ms (View: 1042, DB: 20) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:36:42) [GET]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (440.0ms)
+Rendered posts/_post (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 2253ms (View: 2063, DB: 20) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-11-29 12:36:52) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 120ms (View: 90, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-11-29 12:37:41) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"IpqZel3BdEOY/6nj8Z6AP8YFXSwuK9sXI5vES/r8jCc=", "post"=>{"body"=>"asdfasdf", "title"=>"aaa"}}
+  [4;35;1mPost Create (141.0ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-11-29 04:37:41', 'aaa', 'asdfasdf', '2009-11-29 04:37:41')[0m
+Redirected to http://localhost:3000/posts/3
+Completed in 441ms (DB: 141) | 302 Found [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:37:41) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 3) [0m
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 231ms (View: 200, DB: 0) | 200 OK [http://localhost/posts/3]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-11-29 12:39:43) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"3", "authenticity_token"=>"IpqZel3BdEOY/6nj8Z6AP8YFXSwuK9sXI5vES/r8jCc=", "comment"=>{"body"=>"asdfasdfasdfasf"}}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+  [4;35;1mComment Create (0.0ms)[0m   [0mINSERT INTO "comments" ("updated_at", "body", "post_id", "created_at") VALUES('2009-11-29 04:39:43', 'asdfasdfasdfasf', 3, '2009-11-29 04:39:43')[0m
+Redirected to http://localhost:3000/posts/3
+Completed in 361ms (DB: 0) | 302 Found [http://localhost/posts/3/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:39:44) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 3) [0m
+Rendered comments/_comment (591.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 821ms (View: 781, DB: 10) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:39:54) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 80ms (View: 40, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:39:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (20.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 521ms (View: 441, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:41:48) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 70ms (View: 50, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:41:53) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 3) [0m
+Rendered comments/_comment (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 150ms (View: 120, DB: 10) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:41:57) [GET]
+  [4;36;1mPost Load (10.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 80ms (View: 50, DB: 10) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:41:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (20.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (20.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 190ms (View: 150, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:43:17) [GET]
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 70ms (View: 40, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:43:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (10.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 130ms (View: 100, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:43:18) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (20.0ms)
+Rendered posts/_post (0.0ms)
+Rendered posts/_post (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 70ms (View: 40, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 12:43:19) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 3) [0m
+Rendered comments/_comment (20.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 170ms (View: 140, DB: 0) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-11-29 12:43:20) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 50ms (View: 30, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 12:43:21) [GET]
+  [4;35;1mPost Load (10.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 70ms (View: 40, DB: 10) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-11-29 13:40:30) [GET]
+  [4;36;1mPost Load (20.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (411.0ms)
+Rendered posts/_post (10.0ms)
+Rendered posts/_post (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 1091ms (View: 891, DB: 20) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 13:40:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (20.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (340.0ms)
+Rendered comments/_comment (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 741ms (View: 681, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-11-29 13:40:48) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"IpqZel3BdEOY/6nj8Z6AP8YFXSwuK9sXI5vES/r8jCc=", "comment"=>{"body"=>"Now and then!"}}
+
+ActionController::UnknownAction (No action responded to create. Actions: c):
+  d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  d:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  d:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 13:42:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (70.0ms)
+Rendered comments/_comment (0.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 350ms (View: 320, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-11-29 13:42:37) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"IpqZel3BdEOY/6nj8Z6AP8YFXSwuK9sXI5vES/r8jCc=", "comment"=>{"body"=>"Now and then!"}}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Create (60.0ms)[0m   [0;1mINSERT INTO "comments" ("updated_at", "body", "post_id", "created_at") VALUES('2009-11-29 05:42:37', 'Now and then!', 1, '2009-11-29 05:42:37')[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 380ms (DB: 60) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-11-29 13:42:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (10.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (20.0ms)
+Rendered comments/_comment (0.0ms)
+Rendered comments/_comment (10.0ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at E:/Apps/blog/app/views/layouts/posts.html.erb:9)
+Completed in 280ms (View: 230, DB: 0) | 200 OK [http://localhost/posts/1]
